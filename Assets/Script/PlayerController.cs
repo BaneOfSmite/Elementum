@@ -13,12 +13,17 @@ public class PlayerController : MonoBehaviour {
 
 	void Update() {
 
-		if (Input.GetKeyDown(KeyCode.Q) && !isRotating) {
+		/*if (Input.GetKeyDown(KeyCode.Q) && !isRotating) { //Rotate 90%s
 			StartCoroutine(Rotate(Vector3.up, 90, 1.0f));
 		} else if (Input.GetKeyDown(KeyCode.E) && !isRotating) {
 			StartCoroutine(Rotate(Vector3.up, -90, 1.0f));
-		}
+		}*/
 
+		if (Input.GetKey(KeyCode.Q)) { //Rotate Per-Second
+			transform.Rotate(new Vector3(0, 0.5f, 0));
+		} else if (Input.GetKey(KeyCode.E)) {
+			transform.Rotate(new Vector3(0, -0.5f, 0));
+		}
 		transform.position += GetMoveVector().normalized * MovementSpeed * Time.deltaTime;
 	}
 
@@ -39,9 +44,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Vector3 GetMoveVector() {
 		Vector3 moveVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-
 		moveVector = GetCameraTurn() * moveVector;
-
 		return moveVector;
 	}
 
