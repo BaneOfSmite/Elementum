@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 	public float PlayerHealth, PlayerMana;
 	public static GameManager Instance;
+	public Image Filter;
 
 	void Awake() {
 		if (Instance == null) {
