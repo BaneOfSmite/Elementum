@@ -655,14 +655,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999766199b5f18147b5f23c643b307aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Have: 01000000
+  Have: 0500000001000000
   FilterColor:
   - {r: 1, g: 1, b: 1, a: 0.19607843}
   - {r: 0, g: 0.050980393, b: 1, a: 0.19607843}
   - {r: 0.48235294, g: 0.2509804, b: 0, a: 0.19607843}
   - {r: 1, g: 0.8, b: 0, a: 0.19607843}
   - {r: 0.5882353, g: 0.99607843, b: 1, a: 0.19607843}
-  CurrentType: 1
+  - {r: 1, g: 1, b: 1, a: 0}
+  CurrentType: 5
 --- !u!1 &799340149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerHealth: 0
-  PlayerMana: 0
+  PlayerMaxMana: 100
+  CurrentMana: 100
   Filter: {fileID: 297724827}
 --- !u!4 &1691905846
 Transform:

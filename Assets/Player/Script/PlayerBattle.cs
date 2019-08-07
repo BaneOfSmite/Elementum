@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBattle : MonoBehaviour {
-    public enum PlayerFilter { Air, Water, Earth, Fire, Lightning }
+    public enum PlayerFilter { Air, Water, Earth, Fire, Lightning, None }
     public List<PlayerFilter> Have;
     public Color[] FilterColor;
     public PlayerFilter CurrentType;
@@ -15,6 +15,16 @@ public class PlayerBattle : MonoBehaviour {
     }
 
     void Update() {
+        if (CurrentType != PlayerFilter.None) {
+            GameManager.Instance.CurrentMana -= Time.deltaTime * 2.5f;
+        } else {
+            if (GameManager.Instance.CurrentMana <= GameManager.Instance.PlayerMaxMana) {
+                GameManager.Instance.CurrentMana += Time.deltaTime;
+                if (GameManager.Instance.CurrentMana >= GameManager.Instance.PlayerMaxMana) {
+                    GameManager.Instance.CurrentMana = 100f;
+                }
+            }
+        }
         if (Input.GetKeyDown(KeyCode.F)) {
             if (cycle != (Have.ToArray().Length - 1)) {
                 cycle++;

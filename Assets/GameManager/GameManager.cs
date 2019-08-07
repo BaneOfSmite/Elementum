@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-	public float PlayerHealth, PlayerMana;
+	public float PlayerHealth, PlayerMaxMana = 100, CurrentMana = 100;
 	public static GameManager Instance;
 	public Image Filter;
 
