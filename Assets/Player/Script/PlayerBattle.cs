@@ -17,6 +17,12 @@ public class PlayerBattle : MonoBehaviour {
     void Update() {
         if (CurrentType != PlayerFilter.None) {
             GameManager.Instance.CurrentMana -= Time.deltaTime * 2.5f;
+            if (GameManager.Instance.CurrentMana <= 0) {
+                GameManager.Instance.CurrentMana = 0f;
+                cycle = 0;
+                CurrentType = Have[cycle];
+                GameManager.Instance.Filter.color = FilterColor[(byte) CurrentType];
+            }
         } else {
             if (GameManager.Instance.CurrentMana <= GameManager.Instance.PlayerMaxMana) {
                 GameManager.Instance.CurrentMana += Time.deltaTime;
@@ -32,7 +38,7 @@ public class PlayerBattle : MonoBehaviour {
                 cycle = 0;
             }
             CurrentType = Have[cycle];
-            GameManager.Instance.Filter.color = FilterColor[(byte)CurrentType];
+            GameManager.Instance.Filter.color = FilterColor[(byte) CurrentType];
         }
     }
 
