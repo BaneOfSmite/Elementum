@@ -16,11 +16,12 @@ public class gameUIScript : MonoBehaviour {
 
 
     public void OnStartClick() {
-
+        Debug.Log("startClicked");
 
     }
 
     public void OnQuitClick() {
+        Debug.Log("quitClicked");
         Application.Quit();
     }
 }
