@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: d2df0ada547cac7418437992f10c23f2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cone
+    100002: Cube.007
+    100004: Cube.009
+    100006: Cube.015
+    100008: Cube.022
+    100010: Cube.029
+    100012: Cylinder
+    100014: Cylinder.051
+    100016: Icosphere.002
+    100018: //RootNode
+    400000: Cone
+    400002: Cube.007
+    400004: Cube.009
+    400006: Cube.015
+    400008: Cube.022
+    400010: Cube.029
+    400012: Cylinder
+    400014: Cylinder.051
+    400016: Icosphere.002
+    400018: //RootNode
+    2100000: Trunk
+    2100002: Yellowshit
+    2100004: Tree Trunk
+    2100006: Tree leafs
+    2100008: Rock
+    2100010: Grass
+    2100012: Bush
+    2100014: Berries
+    2100016: Burnt Brunch
+    2100018: Campfire Rock
+    2300000: Cone
+    2300002: Cube.007
+    2300004: Cube.009
+    2300006: Cube.015
+    2300008: Cube.022
+    2300010: Cube.029
+    2300012: Cylinder
+    2300014: Cylinder.051
+    2300016: Icosphere.002
+    3300000: Cone
+    3300002: Cube.007
+    3300004: Cube.009
+    3300006: Cube.015
+    3300008: Cube.022
+    3300010: Cube.029
+    3300012: Cylinder
+    3300014: Cylinder.051
+    3300016: Icosphere.002
+    4300000: Cylinder.051
+    4300002: Cube.007
+    4300004: Cube.009
+    4300006: Cone
+    4300008: Cube.015
+    4300010: Cube.022
+    4300012: Icosphere.002
+    4300014: Cube.029
+    4300016: Cylinder
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Berries
+    second: {fileID: 2100000, guid: 519bfc61a3b34664880abd243c95d543, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Burnt Brunch
+    second: {fileID: 2100000, guid: 2c0cb9ee7adca7d42a97d323ac45de80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bush
+    second: {fileID: 2100000, guid: a435f847c087b714790f7587441f2a17, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Campfire Rock
+    second: {fileID: 2100000, guid: 4cd6d828bd915e248a11efe7c62f6902, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: 8abc8c4459130a9488d7b4354e4c5cb4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock
+    second: {fileID: 2100000, guid: 397d4d6cce31e6447b5511fba364b0fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree Trunk
+    second: {fileID: 2100000, guid: 66039c4c0db27404fbca7c5c35254fae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tree leafs
+    second: {fileID: 2100000, guid: f47efca782fd13a4891f05d31ba234f4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Trunk
+    second: {fileID: 2100000, guid: 27c82f7bfd891ae438633aedca57bb55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellowshit
+    second: {fileID: 2100000, guid: a18cb240efd973f4b95e454bd53cb952, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
