@@ -56,7 +56,37 @@ ModelImporter:
     4300012: Icosphere.028
     4300014: Cube.004
     4300016: Cube
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cloud
+    second: {fileID: 2100000, guid: 81e4b10b829075240875b358dfa7f181, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IslandBottom
+    second: {fileID: 2100000, guid: c2a42dc5beed49b4fb03ffaf3753999f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: IslandTop
+    second: {fileID: 2100000, guid: d6a22bedc5216e74f83a94ce7b00528a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 9b29e225f7966a14a964e0a4eb2ff964, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: df92c07b09236604d945827fb70e3d2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pillar
+    second: {fileID: 2100000, guid: 3337fd303ee8a34438958d9dd84e1f05, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
