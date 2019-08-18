@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour {
 
     void Update() {
         if (Input.GetKey(KeyCode.Q)) {
-            transform.Rotate(new Vector3(0, 0.5f, 0));
+            transform.Rotate(new Vector3(0, 1, 0));
         } else if (Input.GetKey(KeyCode.E)) {
-            transform.Rotate(new Vector3(0, -0.5f, 0));
+            transform.Rotate(new Vector3(0, -1, 0));
         }
         transform.position += GetMoveVector().normalized * MovementSpeed * Time.deltaTime;
     }
