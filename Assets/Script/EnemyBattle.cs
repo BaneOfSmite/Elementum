@@ -5,7 +5,7 @@ public class EnemyBattle : MonoBehaviour {
 	public enum EnemyType { Air, Water, Earth, Fire, Lightning }
 	public EnemyType Type;
 	void Start() {
-		switch (Type) {
+		switch (Type) {//Enemy Damage
 			case EnemyType.Air:
 				Damage = 0;
 				break;
@@ -26,9 +26,9 @@ public class EnemyBattle : MonoBehaviour {
 	void Update() {
 		if (Health <= 0) {
 			Health = 0;
-
+			GameManager.Instance.BattleEnd(gameObject);
 		}
-		switch (Type) {
+		switch (Type) {//Enemy Ability
 			case EnemyType.Air:
 
 				break;

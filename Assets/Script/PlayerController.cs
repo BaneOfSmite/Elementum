@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
+    public GameManager Manager;
     private Transform CameraTransform;
     private bool isRotating, isGrounded;
     public float MovementSpeed, JumpSpeed;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour {
         if (Instance == null) {
             Instance = this;
         }
+        Manager = GameManager.Instance;
         CameraTransform = Camera.main.transform;
     }
 
@@ -35,6 +37,34 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.tag == ("Floor")) {
             isGrounded = true;
         }
+        Collision hit = col;
+        if (hit.gameObject.CompareTag("EnemyBattle")) {
+            Vector3 dir = hit.contacts[0].point - transform.position;
+            dir = (-dir + new Vector3(0, 1f, 0)).normalized;
+            GetComponent<Rigidbody>().AddForce(dir * 250);
+            Manager.PlayerHealth -= hit.gameObject.GetComponent<EnemyBattle>().Damage;
+        }
+        if (hit.gameObject.name.Equals("Fire")) {
+            if (Manager.CurrentType == GameManager.PlayerFilter.Water) {
+                Destroy(hit.gameObject);
+                Manager.Have.Add(GameManager.PlayerFilter.Fire);
+            }
+        } else if (hit.gameObject.name.Equals("Air")) {
+            if (Manager.CurrentType == GameManager.PlayerFilter.Fire) {
+                Destroy(hit.gameObject);
+                Manager.Have.Add(GameManager.PlayerFilter.Air);
+            }
+        } else if (hit.gameObject.name.Equals("Earth")) {
+            if (Manager.CurrentType == GameManager.PlayerFilter.Air) {
+                Destroy(hit.gameObject);
+                Manager.Have.Add(GameManager.PlayerFilter.Earth);
+            }
+        } else if (hit.gameObject.name.Equals("Water")) {
+            if (Manager.CurrentType == GameManager.PlayerFilter.Earth) {
+                Destroy(hit.gameObject);
+                Manager.Have.Add(GameManager.PlayerFilter.Water);
+            }
+        }
     }
 
     private Quaternion GetCameraTurn() {
@@ -46,4 +76,5 @@ public class PlayerController : MonoBehaviour {
         moveVector = GetCameraTurn() * moveVector;
         return moveVector;
     }
+
 }

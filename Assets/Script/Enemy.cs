@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
 
     void Update() {
         if (Vector3.Distance(Player.transform.position, transform.position) <= ActivationDistance) {
-            //Trigger 2D Battle
+            GameManager.Instance.TriggerBattle(Type, gameObject);
         }
     }
 }

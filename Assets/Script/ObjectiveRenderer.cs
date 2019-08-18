@@ -3,43 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectiveRenderer : MonoBehaviour {
-	public PlayerBattle _PlayerBattle;
-    
+	public GameManager Manager;
+
 	void Start() {
-		_PlayerBattle = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBattle>();
+		Manager = GameManager.Instance;
 	}
-	void Update()
-    {
-        transform.GetChild(0).Rotate(new Vector3(1, 1, 1));
-        transform.GetChild(1).Rotate(new Vector3(1, 1, 1));
-        transform.GetChild(2).Rotate(new Vector3(-1, -1, -1));
+	void Update() {
+		transform.GetChild(0).Rotate(new Vector3(1, 1, 1));
+		transform.GetChild(1).Rotate(new Vector3(1, 1, 1));
+		transform.GetChild(2).Rotate(new Vector3(-1, -1, -1));
 
-        if (gameObject.name == "Fire" && _PlayerBattle.CurrentType == PlayerBattle.PlayerFilter.Water)
-        {
+		if (gameObject.name == "Fire" && Manager.CurrentType == GameManager.PlayerFilter.Water) {
 			SetInvis();
-		}
-        else if (gameObject.name == "Water" && _PlayerBattle.CurrentType == PlayerBattle.PlayerFilter.Earth)
-        {
+		} else if (gameObject.name == "Water" && Manager.CurrentType == GameManager.PlayerFilter.Earth) {
 			SetInvis();
-		}
-        else if (gameObject.name == "Earth" && _PlayerBattle.CurrentType == PlayerBattle.PlayerFilter.Air)
-        {
+		} else if (gameObject.name == "Earth" && Manager.CurrentType == GameManager.PlayerFilter.Air) {
 			SetInvis();
-		}
-        else if (gameObject.name == "Air" && _PlayerBattle.CurrentType == PlayerBattle.PlayerFilter.Fire)
-        {
+		} else if (gameObject.name == "Air" && Manager.CurrentType == GameManager.PlayerFilter.Fire) {
 			SetInvis();
+		} else {
+			transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+			transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+			transform.GetChild(2).GetComponent<MeshRenderer>().enabled = false;
 		}
-  //      else
-  //      {
-		//	transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-		//	transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
-		//}
 
-        
 	}
 	private void SetInvis() {
 		transform.GetChild(0).GetComponent<MeshRenderer>().enabled = true;
 		transform.GetChild(1).GetComponent<MeshRenderer>().enabled = true;
+		transform.GetChild(2).GetComponent<MeshRenderer>().enabled = true;
 	}
 }
