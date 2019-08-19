@@ -12,15 +12,15 @@ public class MovingPlatform : MonoBehaviour {
 	public float speed;
 	private Vector3 _dir;
 
-	// Use this for initialization
 	void Start() {
 		Position.Add(transform.GetChild(0).position);
 		Position.Add(transform.GetChild(1).position);
 		_dir = Position[1] - transform.position;
 	}
 
-	// Update is called once per frame
 	void Update() {
+		transform.Rotate(0, 0, 1);
+
 		transform.position += _dir.normalized * speed * Time.deltaTime;
 		if (Direction) {
 			if (Vector3Int.RoundToInt(transform.position) == Vector3Int.RoundToInt(Position[0])) {

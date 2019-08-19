@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4356322660763826}
   - component: {fileID: 33011137282955116}
   - component: {fileID: 23986577951900066}
+  - component: {fileID: 64322211854314932}
   m_Layer: 0
   m_Name: SkyIsland
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1428750425534164}
+  m_Mesh: {fileID: 4300016, guid: 9245dc999053ab144a21378cc972ba94, type: 3}
+--- !u!64 &64322211854314932
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428750425534164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300016, guid: 9245dc999053ab144a21378cc972ba94, type: 3}

@@ -22,9 +22,10 @@ GameObject:
   - component: {fileID: 33823430989257114}
   - component: {fileID: 23900912589476430}
   - component: {fileID: 114510579174822398}
+  - component: {fileID: 64662621551400194}
   m_Layer: 0
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,7 +39,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4589725649683620}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Location1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4825065156416638}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: Location2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1267606008495692}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.32, y: -0.136, z: -0.463}
+  m_LocalPosition: {x: 0, y: -0, z: 0.249}
   m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000002}
   m_Children: []
   m_Father: {fileID: 4270210304307968}
@@ -94,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1869507954234724}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.0179999, y: 0.59600025, z: -1.2201277}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.010000002, z: 0.010000002}
   m_Children: []
   m_Father: {fileID: 4270210304307968}
@@ -143,6 +144,20 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015387411773398}
+  m_Mesh: {fileID: 4300014, guid: 9245dc999053ab144a21378cc972ba94, type: 3}
+--- !u!64 &64662621551400194
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1015387411773398}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300014, guid: 9245dc999053ab144a21378cc972ba94, type: 3}
 --- !u!114 &114510579174822398
 MonoBehaviour:

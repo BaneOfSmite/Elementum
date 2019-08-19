@@ -32,11 +32,15 @@ public class PlayerController : MonoBehaviour {
 
     void FixedUpdate() {
         if (Input.GetAxisRaw("Jump") != 0 && isGrounded) {
-            isGrounded = false;
+            //isGrounded = false;
             GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 0) * JumpSpeed, ForceMode.Impulse);
         }
     }
-
+    private void OnCollisionExit(Collision col) {
+        if (col.gameObject.tag == ("Floor")) {
+            isGrounded = false;
+        }
+    }
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == ("Floor")) {
             isGrounded = true;
