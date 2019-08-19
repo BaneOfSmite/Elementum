@@ -203,15 +203,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999766199b5f18147b5f23c643b307aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Have: 0500000001000000
-  FilterColor:
-  - {r: 1, g: 1, b: 1, a: 0.39215687}
-  - {r: 0.6367924, g: 0.8899149, b: 1, a: 0.39215687}
-  - {r: 0.5849056, g: 0.47836086, b: 0.31728372, a: 0.39215687}
-  - {r: 1, g: 0.39242283, b: 0, a: 0.39215687}
-  - {r: 0.8160377, g: 1, b: 0.9963215, a: 0.39215687}
-  - {r: 0.8160377, g: 1, b: 0.9963215, a: 0}
-  CurrentType: 5
+  Attacks: []
+  speed: 0
+  isGrounded: 0
 --- !u!114 &114237884716105460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,5 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6224aacf5d5ce514bb6040501d3f7d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 0}
   MovementSpeed: 5
   JumpSpeed: 5

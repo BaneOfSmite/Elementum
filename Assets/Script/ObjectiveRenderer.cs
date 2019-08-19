@@ -22,9 +22,9 @@ public class ObjectiveRenderer : MonoBehaviour {
 		} else if (gameObject.name == "Air" && Manager.CurrentType == GameManager.PlayerFilter.Fire) {
 			SetInvis();
 		} else {
-			transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
-			transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
-			transform.GetChild(2).GetComponent<MeshRenderer>().enabled = false;
+			//transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+			//transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+			//transform.GetChild(2).GetComponent<MeshRenderer>().enabled = false;
 		}
 
 	}
