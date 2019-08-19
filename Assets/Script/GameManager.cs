@@ -1,7 +1,15 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
+To Do For This Script:
+- Bug Test
+- Player Death
+- Player Win
+- The 2 Ending Scenes
+- Spawn Enemy For 2D
+- Update UI
+ */
 public class GameManager : MonoBehaviour {
 	public float PlayerHealth, PlayerMaxMana = 100, CurrentMana = 100;
 	public static GameManager Instance;

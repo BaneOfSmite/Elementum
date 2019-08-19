@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
-
+/*
+To Do For This Script:
+- Enemy Movement
+- Enemy Damage
+- Enemy Ability..?
+- Bug Test
+ */
 public class EnemyBattle : MonoBehaviour {
 	public float Damage, Health;
 	public enum EnemyType { Air, Water, Earth, Fire, Lightning }

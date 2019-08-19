@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+To Do For This Script:
+- Animation
+- Bug Test
+ */
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     public GameManager Manager;
@@ -38,12 +42,6 @@ public class PlayerController : MonoBehaviour {
             isGrounded = true;
         }
         Collision hit = col;
-        if (hit.gameObject.CompareTag("EnemyBattle")) {
-            Vector3 dir = hit.contacts[0].point - transform.position;
-            dir = (-dir + new Vector3(0, 1f, 0)).normalized;
-            GetComponent<Rigidbody>().AddForce(dir * 250);
-            Manager.PlayerHealth -= hit.gameObject.GetComponent<EnemyBattle>().Damage;
-        }
         if (hit.gameObject.name.Equals("Fire")) {
             if (Manager.CurrentType == GameManager.PlayerFilter.Water) {
                 Destroy(hit.gameObject);

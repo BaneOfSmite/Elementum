@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
-
+/*
+To Do For This Script:
+- Allow multiple Enemies In Battle Scene Via Children
+- Bug Test
+ */
 public class Enemy : MonoBehaviour {
     public enum EnemyType { Air, Water, Earth, Fire, Lightning }
     public EnemyType Type;
