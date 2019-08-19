@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4180161564670796}
   - component: {fileID: 33482166672304478}
   - component: {fileID: 23774210259538822}
+  - component: {fileID: 64830350936662974}
   m_Layer: 0
   m_Name: Tree 2
   m_TagString: Untagged
@@ -34,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087212008353626}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.096270405, y: -2.2356353, z: -6.2080197}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.67073554, y: -0.13755058, z: 0.1892982, w: 0.7038181}
+  m_LocalPosition: {x: -60.48, y: 39.550007, z: -33.79}
+  m_LocalScale: {x: 100.00032, y: 100.00031, z: 100.00039}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 94.978, y: -135.967, z: -109.215}
 --- !u!23 &23774210259538822
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -56,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f47efca782fd13a4891f05d31ba234f4, type: 2}
+  - {fileID: 2100000, guid: 71da9c9e113fafb4fb2bedcd8d83f44e, type: 2}
   - {fileID: 2100000, guid: 66039c4c0db27404fbca7c5c35254fae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -83,4 +84,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087212008353626}
+  m_Mesh: {fileID: 4300002, guid: d2df0ada547cac7418437992f10c23f2, type: 3}
+--- !u!64 &64830350936662974
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087212008353626}
+  m_Material: {fileID: 13400000, guid: c064b0a60e900324084fbd9ed627ace8, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: d2df0ada547cac7418437992f10c23f2, type: 3}

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4163049941189674}
   - component: {fileID: 33403467096591556}
   - component: {fileID: 23221050606981796}
+  - component: {fileID: 64178918353607176}
   m_Layer: 0
   m_Name: Tree 1
   m_TagString: Untagged
@@ -34,13 +35,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274701690927070}
-  m_LocalRotation: {x: -0.00000005338508, y: 0.7071068, z: -0.7071067, w: 0.000000053385072}
-  m_LocalPosition: {x: 0.0057065785, y: -5.3262753, z: 5.336031}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: 0.49999988, y: 0.5000002, z: 0.5000002, w: -0.49999988}
+  m_LocalPosition: {x: -78.86, y: 42.599995, z: -36.65}
+  m_LocalScale: {x: 100.00278, y: 100.00254, z: 100.00254}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 179.99998}
 --- !u!23 &23221050606981796
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -56,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f47efca782fd13a4891f05d31ba234f4, type: 2}
+  - {fileID: 2100000, guid: 71da9c9e113fafb4fb2bedcd8d83f44e, type: 2}
   - {fileID: 2100000, guid: 66039c4c0db27404fbca7c5c35254fae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -83,4 +84,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1274701690927070}
+  m_Mesh: {fileID: 4300006, guid: d2df0ada547cac7418437992f10c23f2, type: 3}
+--- !u!64 &64178918353607176
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1274701690927070}
+  m_Material: {fileID: 13400000, guid: c064b0a60e900324084fbd9ed627ace8, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: d2df0ada547cac7418437992f10c23f2, type: 3}
