@@ -7,21 +7,21 @@ To Do For This Script:
 - Player Death
 - Player Win
 - The 2 Ending Scenes
-- Spawn Enemy For 2D
 - Update UI
  */
 public class GameManager : MonoBehaviour {
+	public enum PlayerFilter { Air, Water, Earth, Fire, Lightning, None }
 	public float PlayerHealth, PlayerMaxMana = 100, CurrentMana = 100;
 	public static GameManager Instance;
 	public bool isBattle;
 	public Image Filter;
-	public enum PlayerFilter { Air, Water, Earth, Fire, Lightning, None }
 	public List<PlayerFilter> Have;
 	public Color[] FilterColor;
 	public PlayerFilter CurrentType;
 	private int cycle = 0;
-	public GameObject[] Scenes;
+	public GameObject[] Scenes, Battle;
 	private GameObject EnemyTrigger;
+	public int EnemiesLeft = 0;
 	void Awake() {
 		if (Instance == null) {
 			Instance = this;
@@ -59,12 +59,17 @@ public class GameManager : MonoBehaviour {
 		}
 		//UpdateUI
 	}
-	public void TriggerBattle(Enemy.EnemyType Type, GameObject Triggerer) {
+	public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt) {
+		amt++;
 		Scenes[0].SetActive(false);
 		Scenes[1].SetActive(true);
 		isBattle = true;
 		EnemyTrigger = Triggerer;
+		Battle[0].transform.position = Battle[1].transform.position;
 		//Spawn Enemy In Battle Scene
+		for (int i = 0; i < amt; i++) {
+			Instantiate(Battle[2], Battle[3].transform.position, Quaternion.identity, Scenes[1].transform).GetComponent<EnemyBattle>().Type = Type;
+		}
 	}
 	public void BattleEnd(GameObject _Enemy) {
 		Destroy(EnemyTrigger);
