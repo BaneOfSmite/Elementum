@@ -9,9 +9,11 @@ To Do For This Script:
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
     public GameManager Manager;
+    public float MovementSpeed, JumpSpeed;
     private Transform CameraTransform;
     private bool isRotating, isGrounded;
-    public float MovementSpeed, JumpSpeed;
+    private Animator anim;
+    
 
     void Awake() {
         if (Instance == null) {
@@ -19,22 +21,27 @@ public class PlayerController : MonoBehaviour {
         }
         Manager = GameManager.Instance;
         CameraTransform = Camera.main.transform;
+        anim = GetComponent<Animator>();
     }
 
     void Update() {
+        print(GetComponent<Rigidbody>().velocity.y);
         if (Input.GetKey(KeyCode.Q)) {
-            transform.Rotate(new Vector3(0, 1, 0));
-        } else if (Input.GetKey(KeyCode.E)) {
             transform.Rotate(new Vector3(0, -1, 0));
+        } else if (Input.GetKey(KeyCode.E)) {
+            transform.Rotate(new Vector3(0, 1, 0));
         }
+
         transform.position += GetMoveVector().normalized * MovementSpeed * Time.deltaTime;
     }
 
     void FixedUpdate() {
         if (Input.GetAxisRaw("Jump") != 0 && isGrounded) {
-            //isGrounded = false;
             GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 0) * JumpSpeed, ForceMode.Impulse);
+            anim.SetBool("Idle", false);
+            anim.SetBool("Stopped", false);
         }
+        anim.SetFloat("Jump", GetComponent<Rigidbody>().velocity.y);
     }
     private void OnCollisionExit(Collision col) {
         if (col.gameObject.tag == ("Floor")) {
@@ -44,6 +51,7 @@ public class PlayerController : MonoBehaviour {
     void OnCollisionEnter(Collision col) {
         if (col.gameObject.tag == ("Floor")) {
             isGrounded = true;
+            anim.SetBool("Stopped", true);
         }
         Collision hit = col;
         if (hit.gameObject.name.Equals("Fire")) {
@@ -79,4 +87,9 @@ public class PlayerController : MonoBehaviour {
         return moveVector;
     }
 
+    public void FinishIdleStart()
+    {
+        anim.SetBool("Idle", true);
+        anim.SetBool("Stopped", true);
+    }
 }
