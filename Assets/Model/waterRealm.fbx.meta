@@ -4,12 +4,42 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Camera
+    100004: Cube
+    100006: Light
     400000: //RootNode
+    400002: Camera
+    400004: Cube
+    400006: Light
+    2000000: Camera
     2100000: No Name
+    2100002: Material
+    2100004: Sand
+    2100006: Bridge
+    2100008: Floor
     2300000: //RootNode
+    2300002: Cube
     3300000: //RootNode
+    3300002: Cube
     4300000: Plane
-  externalObjects: {}
+    4300002: Cube
+    10800000: Light
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bridge
+    second: {fileID: 2100000, guid: 4a90b9511e8be6342a7190b3611f572f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Floor
+    second: {fileID: 2100000, guid: f911449f0550b5841918264de6f3f563, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: f326b0b82d86c344cb0aa812044268f5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,55 +1,70 @@
 fileFormatVersion: 2
-guid: ecce5dff548bc994ab06435a14be7096
+guid: 0fbc2c825f07db041b923babe8db9ed8
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cube
+    100000: Cube
+    100002: Cube.001
     100004: Cylinder.000
     100006: Cylinder.001
     100008: Cylinder.002
     100010: Cylinder.003
     100012: Cylinder.004
     100014: Cylinder.005
-    100016: Light
-    100018: //RootNode
-    400000: Camera
-    400002: Cube
+    100016: //RootNode
+    400000: Cube
+    400002: Cube.001
     400004: Cylinder.000
     400006: Cylinder.001
     400008: Cylinder.002
     400010: Cylinder.003
     400012: Cylinder.004
     400014: Cylinder.005
-    400016: Light
-    400018: //RootNode
-    2000000: Camera
-    2100000: No Name
-    2100002: pillar
+    400016: //RootNode
+    2100000: Carpet
+    2100002: Material.001
+    2100004: pillar
     2300000: Cube
-    2300002: Cylinder.000
-    2300004: Cylinder.001
-    2300006: Cylinder.002
-    2300008: Cylinder.003
-    2300010: Cylinder.004
-    2300012: Cylinder.005
+    2300002: Cube.001
+    2300004: Cylinder.000
+    2300006: Cylinder.001
+    2300008: Cylinder.002
+    2300010: Cylinder.003
+    2300012: Cylinder.004
+    2300014: Cylinder.005
     3300000: Cube
-    3300002: Cylinder.000
-    3300004: Cylinder.001
-    3300006: Cylinder.002
-    3300008: Cylinder.003
-    3300010: Cylinder.004
-    3300012: Cylinder.005
+    3300002: Cube.001
+    3300004: Cylinder.000
+    3300006: Cylinder.001
+    3300008: Cylinder.002
+    3300010: Cylinder.003
+    3300012: Cylinder.004
+    3300014: Cylinder.005
     4300000: Cube
-    4300002: Cylinder.005
-    4300004: Cylinder.000
-    4300006: Cylinder.001
-    4300008: Cylinder.002
-    4300010: Cylinder.003
-    4300012: Cylinder.004
-    10800000: Light
+    4300002: Cube.001
+    4300004: Cylinder.005
+    4300006: Cylinder.000
+    4300008: Cylinder.001
+    4300010: Cylinder.002
+    4300012: Cylinder.003
+    4300014: Cylinder.004
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carpet
+    second: {fileID: 2100000, guid: 7efb9dd0b9e5b884481622eb3e9f265c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: fbe3a819a3511a14a9fbf8bf2620e678, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillar
+    second: {fileID: 2100000, guid: bda4a9593c4498e42a1a15b9a1d82316, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
