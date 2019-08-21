@@ -21,8 +21,25 @@ public class gameUIScript : MonoBehaviour {
         settings.SetActive(false);
     }
     public void setVolume(float sliderValue) {
-
         mixer.SetFloat("BGM",Mathf.Log10(sliderValue)*20);
+    }
+    public void setQuality(string name) {
+        switch (name)
+        {
+            case "low":
+                QualitySettings.SetQualityLevel(0);
+                break;
+            case "medium":
+                QualitySettings.SetQualityLevel(1);
+                break;
+            case "high":
+                QualitySettings.SetQualityLevel(2);
+                break;          
+            default:
+                name = "high";
+                break;
+        }
+
     }
     public void OnStartClick() {
         Debug.Log("startClicked");
