@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 /*
 To Do For This Script:
-- Remember To Unindent Lines 29 - 31
 - Bug Test
  */
 public class ObjectiveRenderer : MonoBehaviour {
@@ -30,11 +29,11 @@ public class ObjectiveRenderer : MonoBehaviour {
 		} else if (gameObject.name.Contains("Air") && Manager.CurrentType == GameManager.PlayerFilter.Fire) {
 			SetInvis();
 		} else {
-			/*transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
+			transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
 			if (!IsFilter) {
 				transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
 				transform.GetChild(2).GetComponent<MeshRenderer>().enabled = false;
-			}*/
+			}
 		}
 
 	}
