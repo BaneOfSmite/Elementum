@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4667434099029588}
   - component: {fileID: 33205588694798844}
   - component: {fileID: 23833404925776910}
+  - component: {fileID: 95556835344469432}
+  - component: {fileID: 114613539165899714}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -35,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505491011251716}
   m_LocalRotation: {x: 0.49685565, y: -0.5031246, z: 0.5031247, w: -0.49685574}
-  m_LocalPosition: {x: 2.556415, y: 0.20631695, z: -0.20380878}
+  m_LocalPosition: {x: -1047.8685, y: 583.9011, z: -223.51083}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,3 +85,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1505491011251716}
   m_Mesh: {fileID: 4300002, guid: 272ad16a7d4f01c469f349956be31251, type: 3}
+--- !u!95 &95556835344469432
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505491011251716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b185504edd36dee4b8c8024ac804039d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114613539165899714
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1505491011251716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1908005171cb40419f53b67262aae07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  ActivationDistance: 0
