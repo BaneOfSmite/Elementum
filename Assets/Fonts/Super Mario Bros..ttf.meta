@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ef28a03047946d045bc2b9d473c674fb
+guid: c387166ae3678df49be7f827f9bfe2cc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -11,7 +11,8 @@ TrueTypeFontImporter:
   fontName: Super Mario Bros.
   fontNames:
   - Super Mario Bros.
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ef28a03047946d045bc2b9d473c674fb, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

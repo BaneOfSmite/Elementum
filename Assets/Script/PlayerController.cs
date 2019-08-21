@@ -8,24 +8,21 @@ To Do For This Script:
  */
 public class PlayerController : MonoBehaviour {
     public static PlayerController Instance;
-    public GameManager Manager;
     public float MovementSpeed, JumpSpeed;
     private Transform CameraTransform;
     private bool isRotating, isGrounded;
     private Animator anim;
-    
 
     void Awake() {
         if (Instance == null) {
             Instance = this;
         }
-        Manager = GameManager.Instance;
         CameraTransform = Camera.main.transform;
         anim = GetComponent<Animator>();
     }
 
     void Update() {
-        print(GetComponent<Rigidbody>().velocity.y);
+        //print(GetComponent<Rigidbody>().velocity.y);
         if (Input.GetKey(KeyCode.Q)) {
             transform.Rotate(new Vector3(0, -1, 0));
         } else if (Input.GetKey(KeyCode.E)) {
@@ -48,31 +45,48 @@ public class PlayerController : MonoBehaviour {
             isGrounded = false;
         }
     }
-    void OnCollisionEnter(Collision col) {
-        if (col.gameObject.tag == ("Floor")) {
+    void OnCollisionEnter(Collision hit) {
+        if (hit.gameObject.tag == ("Floor")) {
             isGrounded = true;
             anim.SetBool("Stopped", true);
         }
-        Collision hit = col;
-        if (hit.gameObject.name.Equals("Fire")) {
-            if (Manager.CurrentType == GameManager.PlayerFilter.Water) {
-                Destroy(hit.gameObject);
-                Manager.Have.Add(GameManager.PlayerFilter.Fire);
-            }
-        } else if (hit.gameObject.name.Equals("Air")) {
-            if (Manager.CurrentType == GameManager.PlayerFilter.Fire) {
-                Destroy(hit.gameObject);
-                Manager.Have.Add(GameManager.PlayerFilter.Air);
-            }
-        } else if (hit.gameObject.name.Equals("Earth")) {
-            if (Manager.CurrentType == GameManager.PlayerFilter.Air) {
-                Destroy(hit.gameObject);
-                Manager.Have.Add(GameManager.PlayerFilter.Earth);
-            }
-        } else if (hit.gameObject.name.Equals("Water")) {
-            if (Manager.CurrentType == GameManager.PlayerFilter.Earth) {
-                Destroy(hit.gameObject);
-                Manager.Have.Add(GameManager.PlayerFilter.Water);
+        if (hit.gameObject.GetComponent<ObjectiveRenderer>() != null) {
+            if (hit.gameObject.name.Contains("Fire")) {
+                if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Water) {
+                    if (hit.gameObject.GetComponent<ObjectiveRenderer>().IsFilter) {
+                        GameManager.Instance.Have.Add(GameManager.PlayerFilter.Fire);
+                    } else {
+                        GameManager.Instance.ObjectivesLeft--;
+                    }
+                    Destroy(hit.gameObject);
+                }
+            } else if (hit.gameObject.name.Contains("Air")) {
+                if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Fire) {
+                    if (hit.gameObject.GetComponent<ObjectiveRenderer>().IsFilter) {
+                        GameManager.Instance.Have.Add(GameManager.PlayerFilter.Air);
+                    } else {
+                        GameManager.Instance.ObjectivesLeft--;
+                    }
+                    Destroy(hit.gameObject);
+                }
+            } else if (hit.gameObject.name.Contains("Earth")) {
+                if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Air) {
+                    if (hit.gameObject.GetComponent<ObjectiveRenderer>().IsFilter) {
+                        GameManager.Instance.Have.Add(GameManager.PlayerFilter.Earth);
+                    } else {
+                        GameManager.Instance.ObjectivesLeft--;
+                    }
+                    Destroy(hit.gameObject);
+                }
+            } else if (hit.gameObject.name.Contains("Water")) {
+                if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Earth) {
+                    if (hit.gameObject.GetComponent<ObjectiveRenderer>().IsFilter) {
+                        GameManager.Instance.Have.Add(GameManager.PlayerFilter.Water);
+                    } else {
+                        GameManager.Instance.ObjectivesLeft--;
+                    }
+                    Destroy(hit.gameObject);
+                }
             }
         }
     }
@@ -87,8 +101,7 @@ public class PlayerController : MonoBehaviour {
         return moveVector;
     }
 
-    public void FinishIdleStart()
-    {
+    public void FinishIdleStart() {
         anim.SetBool("Idle", true);
         anim.SetBool("Stopped", true);
     }
