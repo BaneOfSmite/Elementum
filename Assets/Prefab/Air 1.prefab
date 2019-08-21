@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4340315432802886}
   - component: {fileID: 114077819829698512}
   - component: {fileID: 65366231859263540}
-  - component: {fileID: 114587586270156830}
+  - component: {fileID: 114741567372295238}
   m_Layer: 0
   m_Name: Air 1
   m_TagString: Untagged
@@ -285,7 +285,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
---- !u!114 &114587586270156830
+  IsFilter: 0
+--- !u!114 &114741567372295238
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,7 +294,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091746178737832}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2e98611a7ef714b8fe0e72db9bf792, type: 3}
+  m_Script: {fileID: 11500000, guid: d1908005171cb40419f53b67262aae07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
+  Type: 0
+  ActivationDistance: 5

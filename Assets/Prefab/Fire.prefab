@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4995307299500648}
   - component: {fileID: 33910024816465518}
   - component: {fileID: 23258901590127802}
+  - component: {fileID: 114022349038738570}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1986263614792526}
   m_Mesh: {fileID: 4300004, guid: 272ad16a7d4f01c469f349956be31251, type: 3}
+--- !u!114 &114022349038738570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986263614792526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1908005171cb40419f53b67262aae07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 3
+  ActivationDistance: 10

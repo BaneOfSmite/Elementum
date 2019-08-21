@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 4720437254483104}
   - component: {fileID: 114990023567421872}
   - component: {fileID: 65509546492289640}
-  - component: {fileID: 114996510312539694}
   m_Layer: 0
   m_Name: Water 1
   m_TagString: Untagged
@@ -212,15 +211,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Manager: {fileID: 0}
---- !u!114 &114996510312539694
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1714966935491996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf2e98611a7ef714b8fe0e72db9bf792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
+  IsFilter: 0
