@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1174062757697818}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.48, y: -1.21, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,8 +75,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040441353, y: 0}
-  m_Size: {x: 5.263651, y: 9.53}
+  m_Offset: {x: 0.15504503, y: -0.83371735}
+  m_Size: {x: 3.4018402, y: 3.4018402}
   m_Direction: 0
 --- !u!114 &114603221470660404
 MonoBehaviour:
@@ -89,12 +89,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5113210ddc0144cac0b2f36c4ae83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damage: 0
+  Damage: 5
   Health: 20
   speed: 1
   Type: 5
   EarthMinion: {fileID: 0}
   TEMP: {fileID: 0}
+  _Sprites:
+  - {fileID: 21300000, guid: 0c5568a54ec90d34d8a0e47f0b3dce91, type: 3}
+  - {fileID: 21300000, guid: e67e98a618bd7c74abe888dced5702e1, type: 3}
+  - {fileID: 21300000, guid: 1f6a8db6885bddd409b46faf514bcbf0, type: 3}
+  - {fileID: 21300000, guid: 3850c0fb93af51346b1d4d6cb7ac2609, type: 3}
+  _SR: {fileID: 0}
+  tookDmg: 0
 --- !u!212 &212585664623412684
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -130,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 86d8f67fd7235344da4f8c17fdf868bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c5568a54ec90d34d8a0e47f0b3dce91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

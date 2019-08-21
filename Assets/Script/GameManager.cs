@@ -65,6 +65,21 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 	public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt) {
+		int _type = 0;
+		switch (Type) {
+			case EnemyBattle.EnemyType.Air:
+			_type = 3;
+			break;
+			case EnemyBattle.EnemyType.Water:
+			_type = 4;
+			break;
+			case EnemyBattle.EnemyType.Fire:
+			_type = 5;
+			break;
+			case EnemyBattle.EnemyType.Earth:
+			_type = 6;
+			break;
+		}
 		amt++;
 		Scenes[0].SetActive(false);
 		Scenes[1].SetActive(true);
@@ -72,7 +87,7 @@ public class GameManager : MonoBehaviour {
 		EnemyTrigger = Triggerer;
 		Battle[0].transform.position = Battle[1].transform.position;
 		for (int i = 0; i < amt; i++) {
-			Instantiate(Battle[2], Battle[3].transform.position, Quaternion.identity, Scenes[1].transform).GetComponent<EnemyBattle>().Type = Type;
+			Instantiate(Battle[_type], Battle[2].transform.position, Quaternion.identity, Scenes[1].transform).GetComponent<EnemyBattle>().Type = Type;
 		}
 	}
 	public void BattleEnd(GameObject _Enemy) {
