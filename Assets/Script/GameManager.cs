@@ -21,14 +21,20 @@ public class GameManager : MonoBehaviour {
 	private int cycle = 0;
 	public GameObject[] Scenes, Battle;
 	private GameObject EnemyTrigger;
-	public int EnemiesLeft = 0;
+	public int EnemiesLeft = 0, ObjectivesLeft;
 	void Awake() {
 		if (Instance == null) {
 			Instance = this;
 		}
 	}
 	void Update() {
-		if (PlayerHealth <= 0) {
+		//UpdateUI
+		if (ObjectivesLeft <= 0) {
+			//Good Ending
+		} else {
+			//Bad Ending
+		}
+		if (PlayerHealth <= 0 || PlayerController.Instance.gameObject.transform.position.y <= -2.5f) {
 			PlayerHealth = 0;
 			//Death
 		}
@@ -57,7 +63,6 @@ public class GameManager : MonoBehaviour {
 			CurrentType = Have[cycle];
 			Filter.color = FilterColor[(byte) CurrentType];
 		}
-		//UpdateUI
 	}
 	public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt) {
 		amt++;
@@ -66,7 +71,6 @@ public class GameManager : MonoBehaviour {
 		isBattle = true;
 		EnemyTrigger = Triggerer;
 		Battle[0].transform.position = Battle[1].transform.position;
-		//Spawn Enemy In Battle Scene
 		for (int i = 0; i < amt; i++) {
 			Instantiate(Battle[2], Battle[3].transform.position, Quaternion.identity, Scenes[1].transform).GetComponent<EnemyBattle>().Type = Type;
 		}

@@ -18,7 +18,7 @@ MonoBehaviour:
   m_fontInfo:
     Name: Super Mario Bros.
     PointSize: 59
-    Scale: 1
+    Scale: 0.6
     CharacterCount: 95
     LineHeight: 59
     Baseline: 0
