@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class gameUIScript : MonoBehaviour {
 
     public bool isFullScreen;
     public GameObject instructions;
+    public GameObject settings;
     public Animator instructAnimation;
+    public Animator settingsAnimation;
+    public AudioMixer mixer;
   
 
     private void Start()
     {
         instructions.SetActive(false);
+        settings.SetActive(false);
+    }
+    public void setVolume(float sliderValue) {
+
+        mixer.SetFloat("BGM",Mathf.Log10(sliderValue)*20);
     }
     public void OnStartClick() {
         Debug.Log("startClicked");
@@ -23,10 +32,15 @@ public class gameUIScript : MonoBehaviour {
         instructions.SetActive(true);
         instructAnimation.SetBool("clicked",true);
         //play the animation
-
+    }
+    public void OnSettingsClick() {
+        settings.SetActive(true);
+        settingsAnimation.SetBool("settingsPress", true);
     }
     public void backBtn() {
         instructAnimation.SetBool("clicked",false);
+        settingsAnimation.SetBool("settingsPress",false);
+        
        // instructions.SetActive(false);
         //playanimation to go back
     }
