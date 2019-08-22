@@ -5,8 +5,7 @@ using UnityEngine;
 To Do For This Script: 
 - Bug Test
  */
-public class EnemyBattle : MonoBehaviour
-{
+public class EnemyBattle : MonoBehaviour {
     public float Damage, Health, speed;
     public enum EnemyType { Air, Water, Earth, Fire, Lightning, Minion }
     public EnemyType Type;
@@ -15,16 +14,13 @@ public class EnemyBattle : MonoBehaviour
     public Sprite[] _Sprites;
     public SpriteRenderer _SR;
     public bool tookDmg;
-    void Start()
-    {
+    void Start() {
         _SR = GetComponent<SpriteRenderer>();
         StartCoroutine(Walking());
-        if (Type != EnemyType.Minion)
-        {
+        if (Type != EnemyType.Minion) {
             GameManager.Instance.EnemiesLeft++;
         }
-        switch (Type)
-        { //Enemy Damage/Ability
+        switch (Type) { //Enemy Damage/Ability
             case EnemyType.Air:
                 GetComponent<Rigidbody2D>().gravityScale = 0;
                 InvokeRepeating("UncarnyEvasion", 1, 1f);
@@ -48,102 +44,82 @@ public class EnemyBattle : MonoBehaviour
             case EnemyType.Minion:
                 Damage = 20;
                 break;
-                /*case EnemyType.Lightning:
-					Damage = 0;
-					break;*/
         }
     }
-    void Update()
-    {
-        if (Health > 0)
-        {
+    void Update() {
+        if (Health > 0) {
             Vector3 dir = PlayerBattle.Instance.gameObject.transform.position - transform.position;
             transform.position += dir.normalized * speed * Time.deltaTime;
-			if (dir.x > 0)
-			{
-				_SR.flipX = true;
-			}
-			else if (dir.x < 0)
-			{
-				_SR.flipX = false;
-			}
+            if (dir.x > 0) {
+                _SR.flipX = true;
+            } else if (dir.x < 0) {
+                _SR.flipX = false;
+            }
         }
-        if (Health <= 0)
-        {
+        if (Health <= 0) {
             Health = 0;
             StartCoroutine(Death());
-            if (Type == EnemyType.Earth)
-            {
+            if (Type == EnemyType.Earth) {
                 Destroy(TEMP);
             }
         }
     }
-    private void SummonMinion()
-    {
-        if (Health > 0)
-        {
+    private void SummonMinion() {
+        if (Health > 0) {
             Instantiate(EarthMinion, transform.position, Quaternion.identity, TEMP.transform);
         }
     }
-    private void UncarnyEvasion()
-    {
-        if (GameObject.FindGameObjectWithTag("Projectile") != null)
-        {
+    private void UncarnyEvasion() {
+        if (GameObject.FindGameObjectWithTag("Projectile") != null) {
             TEMP = GameObject.FindGameObjectWithTag("Projectile");
             Vector3 dir = transform.position - GameObject.FindGameObjectWithTag("Projectile").transform.position;
-            if (Vector2.Distance(GameObject.FindGameObjectWithTag("Projectile").transform.position, transform.position) <= 3)
-            {
-                if (Random.Range(1, 3) == 1)
-                {
+            if (Vector2.Distance(GameObject.FindGameObjectWithTag("Projectile").transform.position, transform.position) <= 3) {
+                if (Random.Range(1, 3) == 1) {
                     GetComponent<Rigidbody2D>().AddForce(dir.normalized * 15f, ForceMode2D.Impulse);
                 }
             }
-        }
-        else
-        {
+        } else {
             TEMP = null;
         }
     }
-	public void ouch() {
-		StartCoroutine(HitAnimation());
-	}
-    private IEnumerator HitAnimation()
-    {
-        if (!tookDmg)
-        {
+    public void ouch() {
+        Vector3 dir = transform.position - PlayerBattle.Instance.gameObject.transform.position;
+        dir.y += 1;
+        if (Type != EnemyType.Air) {
+            GetComponent<Rigidbody2D>().AddForce(dir.normalized * 10f, ForceMode2D.Impulse);
+        } else {
+            GetComponent<Rigidbody2D>().AddForce(dir.normalized * 3f, ForceMode2D.Impulse);
+        }
+        StartCoroutine(HitAnimation());
+    }
+    private IEnumerator HitAnimation() {
+        if (!tookDmg) {
             tookDmg = true;
             _SR.sprite = _Sprites[2];
             yield return new WaitForSeconds(1);
-		}
-		tookDmg = false;
+        }
+        tookDmg = false;
     }
 
-    private IEnumerator Death()
-    {
+    private IEnumerator Death() {
         _SR.sprite = _Sprites[3];
         yield return new WaitForSeconds(1);
-        if (GameManager.Instance.EnemiesLeft <= 1)
-        {
+        if (GameManager.Instance.EnemiesLeft <= 1) {
             GameManager.Instance.BattleEnd(gameObject);
-        }
-        else
-        {
+        } else {
             GameManager.Instance.EnemiesLeft--;
             Destroy(gameObject);
         }
     }
-    private IEnumerator Walking()
-    {
-        while (true)
-        {
-            if (!tookDmg && Health > 0)
-            {
+    private IEnumerator Walking() {
+        while (true) {
+            if (!tookDmg && Health > 0) {
                 _SR.sprite = _Sprites[0];
                 yield return new WaitForSeconds(0.5f);
                 _SR.sprite = _Sprites[1];
                 yield return new WaitForSeconds(0.5f);
             }
-			yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

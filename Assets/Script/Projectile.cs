@@ -6,108 +6,72 @@ To Do For This Script:
 - Bug Test
  */
 
-public class Projectile : MonoBehaviour
-{
+public class Projectile : MonoBehaviour {
     public enum AttackTypes { Air, Water, Earth, Fire, Lightning, EarthDummy }
     public AttackTypes AttackType;
     private Vector3 _dir;
     public GameObject spike;
     private Vector3 SpawnLocation;
-    void Awake()
-    {
+    void Awake() {
         SpawnLocation = transform.position;
         SpawnLocation.x += _dir.x;
         SpawnLocation.y += 0.5f;
     }
-    void Start()
-    {
-        if (AttackType == AttackTypes.Earth || AttackType == AttackTypes.Air || AttackType == AttackTypes.Water)
-        {
+    void Start() {
+        if (AttackType == AttackTypes.Earth || AttackType == AttackTypes.Air || AttackType == AttackTypes.Water) {
             Destroy(gameObject, 10);
-        }
-        else if (AttackType == AttackTypes.EarthDummy)
-        {
+        } else if (AttackType == AttackTypes.EarthDummy) {
             Destroy(gameObject, 0.75f);
-        }
-        else
-        {
+        } else {
             Destroy(gameObject, 0.5f);
         }
-        if (AttackType == AttackTypes.Earth)
-        {
+        if (AttackType == AttackTypes.Earth) {
             StartCoroutine(SummonSpikes());
         }
     }
 
-    void Update()
-    {
-        if (AttackType == AttackTypes.Air)
-        {
+    void Update() {
+        if (AttackType == AttackTypes.Air) {
             transform.position += _dir * 5 * Time.deltaTime;
         }
     }
-    private void OnTriggerEnter2D(Collider2D hit)
-    {
-        if (hit.CompareTag("Enemy"))
-        {
+    private void OnTriggerEnter2D(Collider2D hit) {
+        if (hit.CompareTag("Enemy")) {
 
             hit.GetComponent<EnemyBattle>().ouch();
 
-            if (AttackType == AttackTypes.Fire)
-            {
-                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Air)
-                {
+            if (AttackType == AttackTypes.Fire) {
+                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Air) {
                     hit.GetComponent<EnemyBattle>().Health -= 20;
-                }
-                else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Water)
-                {
+                } else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Water) {
                     hit.GetComponent<EnemyBattle>().Health -= 5;
-                }
-                else
-                {
+                } else {
                     hit.GetComponent<EnemyBattle>().Health -= 10;
                 }
-            }
-            else if (AttackType == AttackTypes.Earth || AttackType == AttackTypes.EarthDummy)
-            {
-                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Water)
-                {
+            } else if (AttackType == AttackTypes.Earth || AttackType == AttackTypes.EarthDummy) {
+                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Water) {
                     hit.GetComponent<EnemyBattle>().Health -= 20;
-                }
-                else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Air)
-                {
+                } else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Air) {
                     hit.GetComponent<EnemyBattle>().Health -= 5;
-                }
-                else
-                {
+                } else {
                     hit.GetComponent<EnemyBattle>().Health -= 10;
                 }
-            }
-            else if (AttackType == AttackTypes.Air)
-            {
-                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Earth)
-                {
+            } else if (AttackType == AttackTypes.Air) {
+                if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Earth) {
                     hit.GetComponent<EnemyBattle>().Health -= 20;
-                }
-                else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Fire)
-                {
+                } else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Fire) {
                     hit.GetComponent<EnemyBattle>().Health -= 5;
-                }
-                else
-                {
+                } else {
                     hit.GetComponent<EnemyBattle>().Health -= 10;
                 }
             }
         }
     }
-    public void setDir(Vector3 dir)
-    {
+    public void setDir(Vector3 dir) {
         _dir = dir.normalized;
     }
-    private IEnumerator SummonSpikes()
-    {
-        for (int i = 0; i < 10; i++)
-        {
+    private IEnumerator SummonSpikes() {
+        for (int i = 0; i < 10; i++) {
             Instantiate(spike, SpawnLocation, Quaternion.identity);
             SpawnLocation.x += _dir.x;
             yield return new WaitForSeconds(0.25f);
