@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour {
                     GameManager.Instance.Have.Add(GameManager.PlayerFilter.Fire);
                     Destroy(hit.gameObject);
                 } else if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Water) {
+                    GameManager.Instance.ObjectiveCollected++;
                     GameManager.Instance.ObjectivesLeft--;
                     Destroy(hit.gameObject);
                 }
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour {
                     GameManager.Instance.Have.Add(GameManager.PlayerFilter.Air);
                     Destroy(hit.gameObject);
                 } else if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Fire) {
+                    GameManager.Instance.ObjectiveCollected++;
                     GameManager.Instance.ObjectivesLeft--;
                     Destroy(hit.gameObject);
                 }
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour {
                     GameManager.Instance.Have.Add(GameManager.PlayerFilter.Earth);
                     Destroy(hit.gameObject);
                 } else if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Air) {
+                    GameManager.Instance.ObjectiveCollected++;
                     GameManager.Instance.ObjectivesLeft--;
                     Destroy(hit.gameObject);
                 }
@@ -81,6 +84,7 @@ public class PlayerController : MonoBehaviour {
                     GameManager.Instance.Have.Add(GameManager.PlayerFilter.Water);
                     Destroy(hit.gameObject);
                 } else if (GameManager.Instance.CurrentType == GameManager.PlayerFilter.Earth) {
+                    GameManager.Instance.ObjectiveCollected++;
                     GameManager.Instance.ObjectivesLeft--;
                     Destroy(hit.gameObject);
                 }

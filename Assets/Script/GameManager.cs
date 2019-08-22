@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour {
 	private int cycle = 0;
 	public GameObject[] Scenes, Battle;
 	private GameObject EnemyTrigger;
-	public int EnemiesLeft = 0, ObjectivesLeft, PuzzleBlockLeft = 3;
+	public int EnemiesLeft = 0, ObjectivesLeft, PuzzleBlockLeft = 3, ObjectiveCollected = 0;
 	void Awake() {
 		if (Instance == null) {
 			Instance = this;
