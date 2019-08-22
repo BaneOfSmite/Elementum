@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - EnemyBattle
   - Projectile
+  - Teleporters
   layers:
   - Default
   - TransparentFX

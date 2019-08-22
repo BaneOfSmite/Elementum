@@ -1,16 +1,12 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 /*
 To Do For This Script:
 - Bug Test
-- Player Death
-- Player Win
-- The 2 Ending Scenes
-- Update UI
  */
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     public enum PlayerFilter { Air, Water, Earth, Fire, Lightning, None }
     public float PlayerHealth, PlayerMaxMana = 100, CurrentMana = 100;
     public static GameManager Instance;
@@ -21,81 +17,56 @@ public class GameManager : MonoBehaviour
     public Color[] FilterColor;
     public PlayerFilter CurrentType;
     private int cycle = 0;
-    public GameObject[] Scenes, Battle, BattleBG;
+    public GameObject[] Scenes, Battle, BattleBG, GameOverVillage;
     private GameObject EnemyTrigger;
     public int EnemiesLeft = 0, ObjectivesLeft, PuzzleBlockLeft = 3, ObjectiveCollected = 0;
-    void Awake()
-    {
-        if (Instance == null)
-        {
+    public TextMeshProUGUI _text;
+
+    void Awake() {
+        Time.timeScale = 1;
+        if (Instance == null) {
             Instance = this;
         }
     }
-    void Update()
-    {
-        if (!PuzzleFail && PuzzleBlockLeft <= 0 && EarthPuzzleSpike.transform.position.y >= 352f)
-        {
+    void Update() {
+        if (!PuzzleFail && PuzzleBlockLeft <= 0 && EarthPuzzleSpike.transform.position.y >= 352f) {
             EarthPuzzleSpike.transform.position -= new Vector3(0, 1, 0) * 5 * Time.deltaTime;
         }
-        //UpdateUI
-        if (ObjectivesLeft <= 0)
-        {
-            //Good Ending
+        if (PlayerHealth <= 0 || PlayerController.Instance.gameObject.transform.position.y <= -185f) {
+            Dead();
         }
-        else
-        {
-            //Bad Ending
-        }
-        if (PlayerHealth <= 0 || PlayerController.Instance.gameObject.transform.position.y <= -2.5f)
-        {
-            PlayerHealth = 0;
-            //Death
-        }
-        if (CurrentType != PlayerFilter.None)
-        {
+        if (CurrentType != PlayerFilter.None) {
             CurrentMana -= Time.deltaTime * 2.5f;
-            if (CurrentMana <= 0)
-            {
+            if (CurrentMana <= 0) {
                 CurrentMana = 0f;
                 cycle = 0;
                 CurrentType = Have[cycle];
-                Filter.color = FilterColor[(byte)CurrentType];
+                Filter.color = FilterColor[(byte) CurrentType];
             }
-        }
-        else
-        {
-            if (CurrentMana <= PlayerMaxMana)
-            {
+        } else {
+            if (CurrentMana <= PlayerMaxMana) {
                 CurrentMana += Time.deltaTime;
-                if (CurrentMana >= PlayerMaxMana)
-                {
+                if (CurrentMana >= PlayerMaxMana) {
                     CurrentMana = 100f;
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (cycle != (Have.ToArray().Length - 1))
-            {
+        if (Input.GetKeyDown(KeyCode.F)) {
+            if (cycle != (Have.ToArray().Length - 1)) {
                 cycle++;
-            }
-            else
-            {
+            } else {
                 cycle = 0;
             }
             CurrentType = Have[cycle];
-            Filter.color = FilterColor[(byte)CurrentType];
+            Filter.color = FilterColor[(byte) CurrentType];
         }
     }
-    public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt)
-    {
+    public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt) {
         int _type = 0;
-        foreach (GameObject i in BattleBG)
-        {
+        foreach (GameObject i in BattleBG) {
             i.SetActive(false);
         }
-        switch (Type)
-        {
+        switch (Type) {
             case EnemyBattle.EnemyType.Air:
                 BattleBG[0].SetActive(true);
                 _type = 3;
@@ -119,16 +90,35 @@ public class GameManager : MonoBehaviour
         isBattle = true;
         EnemyTrigger = Triggerer;
         Battle[0].transform.position = Battle[1].transform.position;
-        for (int i = 0; i < amt; i++)
-        {
+        for (int i = 0; i < amt; i++) {
             Instantiate(Battle[_type], Battle[2].transform.position, Quaternion.identity, Scenes[1].transform).GetComponent<EnemyBattle>().Type = Type;
         }
     }
-    public void BattleEnd(GameObject _Enemy)
-    {
+    public void BattleEnd(GameObject _Enemy) {
         Destroy(EnemyTrigger);
         Destroy(_Enemy);
         Scenes[1].SetActive(false);
         Scenes[0].SetActive(true);
+    }
+
+    public void Dead() {
+        PlayerHealth = 0;
+        _text.text = "You Died";
+        PlayerController.Instance.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        PlayerController.Instance.enabled = false;
+        Time.timeScale = 0;
+    }
+
+    public void GameOver() {
+        foreach (GameObject i in GameObject.FindGameObjectsWithTag("Teleporters")) {
+            i.SetActive(false);
+        }
+        if (ObjectivesLeft <= 0) {
+            _text.text = "You Win";
+        } else {
+            _text.text = "You Lose";
+            GameOverVillage[0].SetActive(false);
+            GameOverVillage[1].SetActive(true);
+        }
     }
 }

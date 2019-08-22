@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Texture/Battle.meta
-guid: 825e38a595543c3489da4f9f88f46d64
-folderAsset: yes
-DefaultImporter:
-=======
-guid: 37fc59eded472ae43982b9b53f4ab411
+guid: e224cfdfd16ab9c4e8a6a705d4b16e5c
 NativeFormatImporter:
->>>>>>> 22374b74828305a6d053c9bb91ef5db941653d39:Assets/Animation/UIAnimations/BlackPanekl.controller.meta
   externalObjects: {}
-  mainObjectFileID: 9100000
+  mainObjectFileID: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

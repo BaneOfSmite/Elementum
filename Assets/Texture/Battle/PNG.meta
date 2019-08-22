@@ -1,14 +1,8 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Texture/Battle/PNG.meta
-guid: 3dea5a1cbdca0604a8f8f707053218a6
+guid: 9ed9126e37a770246849986b2f7f5e41
 folderAsset: yes
 DefaultImporter:
-=======
-guid: f321bc793f8f07547b72a8a409b87d2f
-NativeFormatImporter:
->>>>>>> 22374b74828305a6d053c9bb91ef5db941653d39:Assets/Animation/UIAnimations/BlackScreen.anim.meta
   externalObjects: {}
-  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
