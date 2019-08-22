@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour {
     private GameObject EnemyTrigger;
     public int EnemiesLeft = 0, ObjectivesLeft, PuzzleBlockLeft = 3, ObjectiveCollected = 0;
     public TextMeshProUGUI _text;
-
+    public GameObject gmUI;
     void Awake() {
+        gmUI.SetActive(false);
         Time.timeScale = 1;
         if (Instance == null) {
             Instance = this;
@@ -114,6 +115,8 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject i in GameObject.FindGameObjectsWithTag("Teleporters")) {
             i.SetActive(false);
         }
+       
+        gmUI.SetActive(true);
         if (ObjectivesLeft <= 0) {
             _text.text = "You Win";
         } else {
