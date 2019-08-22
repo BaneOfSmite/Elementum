@@ -68,7 +68,7 @@ public class PlayerBattle : MonoBehaviour
                 GameManager.Instance.PlayerHealth += 15f;
                 fireRateDelay = 0;
                 StartCoroutine(MagicCasting());
-                Instantiate(Attacks[1], transform.position + new Vector3(0,2f,0), Quaternion.identity);
+                Instantiate(Attacks[1], transform.position + new Vector3(0, 2f, 0), Quaternion.identity);
             }
             else if (Manager.CurrentType == GameManager.PlayerFilter.Earth && fireRateDelay >= 0.5f)
             {
@@ -78,7 +78,7 @@ public class PlayerBattle : MonoBehaviour
             }
             else if (Manager.CurrentType == GameManager.PlayerFilter.Air && fireRateDelay >= 2f)
             {
-                Instantiate(Attacks[3], transform.position + new Vector3(0,1.5f,0), Quaternion.identity).GetComponent<Projectile>().setDir((isFlipped ? new Vector3(-1, 0, 0) : new Vector3(1, 0, 0)));
+                Instantiate(Attacks[3], transform.position + new Vector3(0, 1.5f, 0), Quaternion.identity).GetComponent<Projectile>().setDir((isFlipped ? new Vector3(-1, 0, 0) : new Vector3(1, 0, 0)));
                 fireRateDelay = 0;
                 StartCoroutine(MagicCasting());
             }
@@ -93,7 +93,10 @@ public class PlayerBattle : MonoBehaviour
         }
         else if (hit.gameObject.CompareTag("Enemy"))
         {
-            GameManager.Instance.PlayerHealth -= hit.gameObject.GetComponent<EnemyBattle>().Damage;
+            if (hit.gameObject.GetComponent<EnemyBattle>().Health > 0)
+            {
+                GameManager.Instance.PlayerHealth -= hit.gameObject.GetComponent<EnemyBattle>().Damage;
+            }
         }
     }
     void FixedUpdate()

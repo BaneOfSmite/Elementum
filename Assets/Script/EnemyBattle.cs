@@ -115,7 +115,6 @@ public class EnemyBattle : MonoBehaviour
             _SR.sprite = _Sprites[2];
             yield return new WaitForSeconds(1);
 		}
-		print("D");
 		tookDmg = false;
     }
 
