@@ -2953,6 +2953,10 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.4528302
       objectReference: {fileID: 0}
+    - target: {fileID: 1657540178138266, guid: a1863325029ca2f46be13b32f20e94f6, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114433986626732478, guid: a1863325029ca2f46be13b32f20e94f6, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a1863325029ca2f46be13b32f20e94f6, type: 2}
