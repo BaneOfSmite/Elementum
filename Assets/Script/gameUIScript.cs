@@ -26,17 +26,17 @@ public class gameUIScript : MonoBehaviour {
     public void setQuality(string name) {
         switch (name)
         {
-            case "low":
+            case "Low":
                 QualitySettings.SetQualityLevel(0);
                 break;
-            case "medium":
+            case "Medium":
                 QualitySettings.SetQualityLevel(1);
                 break;
-            case "high":
+            case "High":
                 QualitySettings.SetQualityLevel(2);
                 break;          
             default:
-                name = "high";
+                name = "High";
                 break;
         }
 
@@ -56,8 +56,7 @@ public class gameUIScript : MonoBehaviour {
     }
     public void backBtn() {
         instructAnimation.SetBool("clicked",false);
-        settingsAnimation.SetBool("settingsPress",false);
-        
+        settingsAnimation.SetBool("settingsPress",false);       
        // instructions.SetActive(false);
         //playanimation to go back
     }
@@ -78,7 +77,7 @@ public class gameUIScript : MonoBehaviour {
         {
             Debug.Log("windowedMode");
             isFullScreen = true;
-            Screen.fullScreen = false;
+            Screen.fullScreen = false;//windowedMode
         }
 
     }
