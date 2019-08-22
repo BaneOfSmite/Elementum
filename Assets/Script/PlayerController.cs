@@ -31,16 +31,14 @@ public class PlayerController : MonoBehaviour {
         }
 
         transform.position += GetMoveVector().normalized * MovementSpeed * Time.deltaTime;
-    }
-
-    void FixedUpdate() {
-        if (Input.GetAxisRaw("Jump") != 0 && isGrounded) {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             GetComponent<Rigidbody>().AddForce(new Vector3(0, 1, 0) * JumpSpeed, ForceMode.Impulse);
             anim.SetBool("Idle", false);
             anim.SetBool("Stopped", false);
         }
         anim.SetFloat("Jump", GetComponent<Rigidbody>().velocity.y);
     }
+
     private void OnCollisionExit(Collision col) {
         if (col.gameObject.tag == ("Floor")) {
             isGrounded = false;

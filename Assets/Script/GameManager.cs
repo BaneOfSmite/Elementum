@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour {
     public void BattleEnd(GameObject _Enemy) {
         Destroy(EnemyTrigger);
         Destroy(_Enemy);
+        EnemiesLeft = 0;
         Scenes[1].SetActive(false);
         Scenes[0].SetActive(true);
     }
