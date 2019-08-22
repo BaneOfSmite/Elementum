@@ -38,8 +38,11 @@ public class MovingPlatform : MonoBehaviour {
         }
     }
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.name.Contains("Air")) {
+        if (other.gameObject.CompareTag("Player")) {
             other.gameObject.transform.position += _dir.normalized * speed * Time.deltaTime;
+        } else if (other.gameObject.name.Contains("Air")) {
+            Vector3 _enemydir = new Vector3(_dir.x, 0, _dir.x);
+            other.gameObject.transform.position += _enemydir.normalized * speed * Time.deltaTime;
         }
     }
     /*private void OnTriggerExit(Collider other)

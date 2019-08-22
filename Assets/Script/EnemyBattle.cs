@@ -59,9 +59,6 @@ public class EnemyBattle : MonoBehaviour {
         if (Health <= 0) {
             Health = 0;
             StartCoroutine(Death());
-            if (Type == EnemyType.Earth) {
-                Destroy(TEMP);
-            }
         }
     }
     private void SummonMinion() {
@@ -103,6 +100,9 @@ public class EnemyBattle : MonoBehaviour {
 
     private IEnumerator Death() {
         _SR.sprite = _Sprites[3];
+        if (Type == EnemyType.Earth) {
+                Destroy(TEMP);
+            }
         yield return new WaitForSeconds(1);
         if (GameManager.Instance.EnemiesLeft <= 1) {
             GameManager.Instance.BattleEnd(gameObject);
