@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4910999647769902}
   - component: {fileID: 33863585946566898}
   - component: {fileID: 23282888466397794}
+  - component: {fileID: 64261732120407768}
   m_Layer: 0
   m_Name: Block Spike
   m_TagString: Untagged
@@ -34,9 +35,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656330108480086}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 12.154264, y: 0.2892902, z: 6.9796863}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0.22039299, y: -11.43505, z: 39.78968}
+  m_LocalScale: {x: 308.97928, y: 308.97913, z: 308.97913}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,4 +83,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656330108480086}
+  m_Mesh: {fileID: 4300006, guid: 35b12f19ba4ae9c4c8a3799a6f56dd33, type: 3}
+--- !u!64 &64261732120407768
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656330108480086}
+  m_Material: {fileID: 13400000, guid: c064b0a60e900324084fbd9ed627ace8, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: 35b12f19ba4ae9c4c8a3799a6f56dd33, type: 3}

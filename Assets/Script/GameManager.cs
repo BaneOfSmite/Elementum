@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour {
 	public enum PlayerFilter { Air, Water, Earth, Fire, Lightning, None }
 	public float PlayerHealth, PlayerMaxMana = 100, CurrentMana = 100;
 	public static GameManager Instance;
-	public bool isBattle;
+	public GameObject EarthPuzzleSpike;
+	public bool isBattle, PuzzleFail;
 	public Image Filter;
 	public List<PlayerFilter> Have;
 	public Color[] FilterColor;
@@ -21,13 +22,16 @@ public class GameManager : MonoBehaviour {
 	private int cycle = 0;
 	public GameObject[] Scenes, Battle;
 	private GameObject EnemyTrigger;
-	public int EnemiesLeft = 0, ObjectivesLeft;
+	public int EnemiesLeft = 0, ObjectivesLeft, PuzzleBlockLeft = 3;
 	void Awake() {
 		if (Instance == null) {
 			Instance = this;
 		}
 	}
 	void Update() {
+		if (!PuzzleFail && PuzzleBlockLeft <= 0 && EarthPuzzleSpike.transform.position.y >= 352f) {
+			EarthPuzzleSpike.transform.position -= new Vector3(0,1,0) * 5 * Time.deltaTime;
+		}
 		//UpdateUI
 		if (ObjectivesLeft <= 0) {
 			//Good Ending
