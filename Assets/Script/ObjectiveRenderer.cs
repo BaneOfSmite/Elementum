@@ -22,19 +22,19 @@ public class ObjectiveRenderer : MonoBehaviour
             transform.GetChild(0).Rotate(new Vector3(1, 1, 1));
             transform.GetChild(1).Rotate(new Vector3(1, 1, 1));
             transform.GetChild(2).Rotate(new Vector3(-1, -1, -1));
-            if (gameObject.name.Contains("Fire") && Manager.CurrentType == GameManager.PlayerFilter.Fire)
+            if (gameObject.name.Contains("Fire") && Manager.CurrentType == GameManager.PlayerFilter.Water)
             {
                 SetInvis();
             }
-            else if (gameObject.name.Contains("Water") && Manager.CurrentType == GameManager.PlayerFilter.Water)
+            else if (gameObject.name.Contains("Water") && Manager.CurrentType == GameManager.PlayerFilter.Earth)
             {
                 SetInvis();
             }
-            else if (gameObject.name.Contains("Earth") && Manager.CurrentType == GameManager.PlayerFilter.Earth)
+            else if (gameObject.name.Contains("Earth") && Manager.CurrentType == GameManager.PlayerFilter.Air)
             {
                 SetInvis();
             }
-            else if (gameObject.name.Contains("Air") && Manager.CurrentType == GameManager.PlayerFilter.Air)
+            else if (gameObject.name.Contains("Air") && Manager.CurrentType == GameManager.PlayerFilter.Fire)
             {
                 SetInvis();
             }
