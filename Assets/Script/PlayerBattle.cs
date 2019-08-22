@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 /*
 To Do For This Script:
@@ -16,6 +17,7 @@ public class PlayerBattle : MonoBehaviour
     public bool isGrounded;
     private bool isFlipped;
     private float fireRateDelay;
+    public AudioSource[] battle;
 
     private Animator anim;
     void Awake()
@@ -108,6 +110,14 @@ public class PlayerBattle : MonoBehaviour
             anim.SetBool("Jump", true);
         }
     }
+    
+    //Testing Battle Music
+    void BattleMusic()
+    {
+        Destroy(battle[0], battle[0].clip.length);
+        battle[1].Play();
+    }
+    
     IEnumerator MagicCasting()
     {
         anim.SetBool("Attack", true);
