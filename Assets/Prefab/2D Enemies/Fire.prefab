@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 20
-  Health: 100
+  Health: 60
   speed: 2
   Type: 3
   EarthMinion: {fileID: 1174062757697818, guid: 32d5cd03dadc51c49a871f08ba3d8b34,

@@ -50,11 +50,11 @@ public class Projectile : MonoBehaviour {
                 }
             } else if (AttackType == AttackTypes.Earth || AttackType == AttackTypes.EarthDummy) {
                 if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Water) {
-                    hit.GetComponent<EnemyBattle>().Health -= 20;
+                    hit.GetComponent<EnemyBattle>().Health -= 4;
                 } else if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Air) {
-                    hit.GetComponent<EnemyBattle>().Health -= 5;
+                    hit.GetComponent<EnemyBattle>().Health -= 1;
                 } else {
-                    hit.GetComponent<EnemyBattle>().Health -= 10;
+                    hit.GetComponent<EnemyBattle>().Health -= 2;
                 }
             } else if (AttackType == AttackTypes.Air) {
                 if (hit.GetComponent<EnemyBattle>().Type == EnemyBattle.EnemyType.Earth) {

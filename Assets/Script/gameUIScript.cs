@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class gameUIScript : MonoBehaviour {
+public class gameUIScript : MonoBehaviour
+{
 
     public bool isFullScreen;
     public GameObject instructions;
@@ -13,17 +14,32 @@ public class gameUIScript : MonoBehaviour {
     public Animator instructAnimation;
     public Animator settingsAnimation;
     public AudioMixer mixer;
-  
+    public GameObject LoadingBar;
+    public GameObject[] disabledd;
+    private AsyncOperation ao;
+    private bool isloading;
+
 
     private void Start()
     {
         instructions.SetActive(false);
         settings.SetActive(false);
     }
-    public void setVolume(float sliderValue) {
-        mixer.SetFloat("BGM",Mathf.Log10(sliderValue)*20);
+
+    void Update()
+    {
+        if (isloading)
+        {
+            float progress = Mathf.Clamp01(ao.progress / 0.9f);
+            LoadingBar.transform.GetChild(0).GetComponent<Slider>().value = progress;
+        }
     }
-    public void setQuality(string name) {
+    public void setVolume(float sliderValue)
+    {
+        mixer.SetFloat("BGM", Mathf.Log10(sliderValue) * 20);
+    }
+    public void setQuality(string name)
+    {
         switch (name)
         {
             case "Low":
@@ -34,38 +50,50 @@ public class gameUIScript : MonoBehaviour {
                 break;
             case "High":
                 QualitySettings.SetQualityLevel(2);
-                break;          
+                break;
             default:
                 name = "High";
                 break;
         }
 
     }
-    public void OnStartClick() {
+    public void OnStartClick()
+    {
         Debug.Log("startClicked");
-        //SceneManager.LoadScene(0);
+        foreach (GameObject i in disabledd)
+        {
+            i.SetActive(false);
+        }
+        ao = SceneManager.LoadSceneAsync(1);
+        LoadingBar.SetActive(true);
+        isloading = true;
     }
-    public void OnInstructClick() {
+    public void OnInstructClick()
+    {
         instructions.SetActive(true);
-        instructAnimation.SetBool("clicked",true);
+        instructAnimation.SetBool("clicked", true);
         //play the animation
     }
-    public void OnSettingsClick() {
+    public void OnSettingsClick()
+    {
         settings.SetActive(true);
         settingsAnimation.SetBool("settingsPress", true);
     }
-    public void backBtn() {
-        instructAnimation.SetBool("clicked",false);
-        settingsAnimation.SetBool("settingsPress",false);       
-       // instructions.SetActive(false);
+    public void backBtn()
+    {
+        instructAnimation.SetBool("clicked", false);
+        settingsAnimation.SetBool("settingsPress", false);
+        // instructions.SetActive(false);
         //playanimation to go back
     }
-    public void OnQuitClick() {
+    public void OnQuitClick()
+    {
         Debug.Log("quitClicked");
         Application.Quit();
     }
 
-    public void onCheckFullscreen() {
+    public void onCheckFullscreen()
+    {
         if (isFullScreen == true)
         {
             Debug.Log("fullscreenMode");

@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
     }
     public void TriggerBattle(EnemyBattle.EnemyType Type, GameObject Triggerer, int amt)
     {
+        source.Pause();
         int _type = 0;
         foreach (GameObject i in BattleBG)
         {
@@ -120,6 +121,7 @@ public class GameManager : MonoBehaviour
     }
     public void BattleEnd(GameObject _Enemy)
     {
+        source.UnPause();
         Destroy(EnemyTrigger);
         Destroy(_Enemy);
         EnemiesLeft = 0;
@@ -132,6 +134,8 @@ public class GameManager : MonoBehaviour
         PlayerHealth = 0;
         _text.text = "You Died";
         PlayerController.Instance.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        source.clip = music[4];
+        source.Play();
         PlayerController.Instance.enabled = false;
         Time.timeScale = 0;
     }
