@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public GameObject gmUI;
     public AudioClip[] music;
     public AudioSource source;
+
     void Awake()
     {
         gmUI.SetActive(false);

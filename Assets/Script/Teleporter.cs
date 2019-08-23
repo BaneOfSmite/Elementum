@@ -10,6 +10,12 @@ public class Teleporter : MonoBehaviour {
 				GameManager.Instance.GameOver();
 			}
 			hit.transform.position = transform.GetChild(0).transform.position;
+
+			if (gameObject.name.Contains("FireRealm"))
+			{
+				GameManager.Instance.source.clip = GameManager.Instance.music[0];
+				GameManager.Instance.source.Play();
+			}
 		}
 	}
 }
